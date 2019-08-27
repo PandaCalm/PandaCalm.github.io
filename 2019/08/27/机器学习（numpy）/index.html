@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是numpy- 是科学计算的基础包 - 由多维数组对象和用于处理数组的例程集合组成的库 - 核心是ndarray - 实现功能：关于矩阵及其运算">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T01:38:46.645Z">
+<meta property="og:updated_time" content="2019-08-27T04:24:23.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习第一天（认识numpy）">
 <meta name="twitter:description" content="什么是numpy- 是科学计算的基础包 - 由多维数组对象和用于处理数组的例程集合组成的库 - 核心是ndarray - 实现功能：关于矩阵及其运算">
@@ -157,18 +157,67 @@
 - 由多维数组对象和用于处理数组的例程集合组成的库
 - 核心是ndarray
 - 实现功能：关于矩阵及其运算</code></pre><a id="more"></a>
-<h1 id="numpy用法"><a href="#numpy用法" class="headerlink" title="numpy用法"></a>numpy用法</h1><h2 id="array-实现功能："><a href="#array-实现功能：" class="headerlink" title="array() 实现功能："></a>array() 实现功能：</h2><pre><code class="python">
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<h1 id="numpy用法"><a href="#numpy用法" class="headerlink" title="numpy用法"></a>numpy用法</h1><h2 id="array-实现功能："><a href="#array-实现功能：" class="headerlink" title="array() 实现功能："></a>array() 实现功能：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">array_01 = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])  <span class="comment"># 二维数组</span></span><br><span class="line"></span><br><span class="line">array_02 = np.array([[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]]) <span class="comment"># 三维数组  </span></span><br><span class="line"></span><br><span class="line">print(array_01)  </span><br><span class="line"></span><br><span class="line">print(array_02) <span class="comment"># 二维数组和三维数组</span></span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## genfromtxt() 实现功能：  </span></span><br><span class="line">```python</span><br><span class="line">content = numpy.genfromtxt(<span class="string">'world_alcohol.txt'</span>, dtype=str, delimiter=<span class="string">','</span>) <span class="comment"># 第一个参数是文件路径，这里填的是相对路径，dtype是传入的数据类型，delimiter是分隔符</span></span><br><span class="line">print(content)</span><br></pre></td></tr></table></figure>
 
-array_01 = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]])  <span class="comment"># 二维数组</span>
+<h2 id="切片的使用"><a href="#切片的使用" class="headerlink" title="切片的使用"></a>切片的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix[ : ,  : ] # 切片包头不包尾，逗号前为索引行，后为索引列</span><br></pre></td></tr></table></figure>
 
-array_02 = np.array([[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]]) <span class="comment"># 三维数组  </span>
+<h2 id="min-max-sum的使用"><a href="#min-max-sum的使用" class="headerlink" title="min max sum的使用"></a>min max sum的使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">array_test = numpy.array([[<span class="string">'12'</span>, <span class="string">'234'</span>, <span class="string">'88'</span>], [<span class="string">'88'</span>, <span class="number">77</span>, <span class="number">97</span>]])  </span><br><span class="line">print(array_test.shape)  <span class="comment"># 打印几行几列</span></span><br><span class="line">print(array_test)  </span><br><span class="line">array_test = array_test.astype(int)  <span class="comment"># astype（int）转换为int型</span></span><br><span class="line">print(array_test)  </span><br><span class="line">min_number = array_test.min()  </span><br><span class="line">print(min_number)  </span><br><span class="line">max_number = array_test.max()  </span><br><span class="line">print(max_number)  </span><br><span class="line"></span><br><span class="line">sum_row = array_test.sum(axis=<span class="number">1</span>)  <span class="comment"># 求行和</span></span><br><span class="line">sum_column = array_test.sum(axis=<span class="number">0</span>)  <span class="comment"># 求列和</span></span><br><span class="line">print(<span class="string">'='</span>*<span class="number">30</span>)  </span><br><span class="line">print(sum_row)  </span><br><span class="line">print(<span class="string">'='</span>*<span class="number">30</span>)  </span><br><span class="line">print(sum_column)</span><br></pre></td></tr></table></figure>
 
-print(array_01)  
+<h2 id="复制的三种方法"><a href="#复制的三种方法" class="headerlink" title="复制的三种方法"></a>复制的三种方法</h2><pre><code>- b = a # a,b同一指向
+- b = a.view() # 指向不同，但数据共享
+- b = a.copy() # 指向不同 </code></pre><h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A*B</td>
+<td align="center">对应位置相乘</td>
+</tr>
+<tr>
+<td align="center">A.dot(B)</td>
+<td align="center">A × B 矩阵相乘</td>
+</tr>
+<tr>
+<td align="center">np.dot(A,B)</td>
+<td align="center">A x B 矩阵相乘</td>
+</tr>
+<tr>
+<td align="center">ndim</td>
+<td align="center">维度值</td>
+</tr>
+<tr>
+<td align="center">arange（a, b）</td>
+<td align="center">生成a–&gt;(b-1)数组</td>
+</tr>
+<tr>
+<td align="center">exp</td>
+<td align="center">e的n次方</td>
+</tr>
+<tr>
+<td align="center">sqrt</td>
+<td align="center">根号n</td>
+</tr>
+<tr>
+<td align="center">hstack((A),(B))</td>
+<td align="center">A和B行拼接</td>
+</tr>
+<tr>
+<td align="center">vstack((A),(B))</td>
+<td align="center">A和B列拼接</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">转置</td>
+</tr>
+<tr>
+<td align="center">tile()</td>
+<td align="center">拓展矩阵</td>
+</tr>
+</tbody></table>
 
-print(array_02) <span class="comment"># 二维数组和三维数组的区别：</span>
-</code></pre>
-<h2 id="genfromtxt-实现功能："><a href="#genfromtxt-实现功能：" class="headerlink" title="genfromtxt() 实现功能："></a>genfromtxt() 实现功能：</h2><h1 id="自我回顾"><a href="#自我回顾" class="headerlink" title="自我回顾"></a>自我回顾</h1><h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1>
       
 
       
